@@ -51,11 +51,13 @@
     (GatlingConfiguration/setUp conf)
     (ReportsGenerator/generateFor "output" (FileDataReader. "input"))))
 
+(defn start-time []
+  (LocalDateTime.))
+
 (defn gatling-highcharts-reporter [results-dir]
-  (let [start-time (LocalDateTime.)]
-    {:writer (partial csv-writer (path-join results-dir "input") start-time)
-     :generator (fn [_]
-                  (println "Creating report from files in" results-dir)
-                  (create-chart results-dir)
-                  (println (str "Open " results-dir "/index.html with your browser to see a detailed report." )))}))
+  {:writer (partial csv-writer (path-join results-dir "input") (start-time))
+   :generator (fn [_]
+                (println "Creating report from files in" results-dir)
+                (create-chart results-dir)
+                (println (str "Open " results-dir "/index.html with your browser to see a detailed report." )))})
 
