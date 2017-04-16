@@ -1,6 +1,6 @@
-(defproject clojider-gatling-highcharts-reporter "0.1.0"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
+(defproject clojider-gatling-highcharts-reporter "0.1.1"
+  :description "Gatling Highcharts Reporter for clj-gatling"
+  :url "https://github.com/mhjort/clojider-gatling-highcharts-reporter"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.8.0"]
