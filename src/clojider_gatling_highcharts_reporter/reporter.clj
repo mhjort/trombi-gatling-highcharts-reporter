@@ -32,5 +32,7 @@
 
 (defn csv-writer [path start-time simulation idx results]
   (let [result-lines (gatling-csv-lines start-time simulation idx results)
-        csv (write-csv result-lines :delimiter "\t" :end-of-line "\n")]
-    (spit (str path "/simulation" idx ".log") csv)))
+        csv (write-csv result-lines :delimiter "\t" :end-of-line "\n")
+        file-name (str path "/simulation" idx ".log")]
+    (spit file-name csv)
+    [file-name]))
