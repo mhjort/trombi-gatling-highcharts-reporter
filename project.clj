@@ -1,4 +1,4 @@
-(defproject clojider-gatling-highcharts-reporter "0.2.0"
+(defproject clojider-gatling-highcharts-reporter "0.2.1"
   :description "Gatling Highcharts Reporter for clj-gatling"
   :url "https://github.com/mhjort/clojider-gatling-highcharts-reporter"
   :license {:name "Eclipse Public License"
@@ -15,5 +15,3 @@
                   :exclusions [io.gatling/gatling-app io.gatling/gatling-recorder]]]
   :repositories { "excilys" "http://repository.excilys.com/content/groups/public" }
   :profiles {:dev {:dependencies [[clj-containment-matchers "1.0.1"]] }})
-
-
