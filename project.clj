@@ -3,7 +3,7 @@
   :url "https://github.com/mhjort/clojider-gatling-highcharts-reporter"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure "1.8.0"]
+  :dependencies [[org.clojure/clojure "1.10.3"]
                  [clojure-csv/clojure-csv "2.0.2"]
                  [io.gatling/gatling-charts "2.0.3"
                   :exclusions [com.typesafe.akka/akka-actor_2.10
