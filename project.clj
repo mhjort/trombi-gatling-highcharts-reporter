@@ -5,7 +5,6 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [clojure-csv/clojure-csv "2.0.2"]
-                 [clj-time "0.13.0"]
                  [io.gatling/gatling-charts "2.0.3"
                   :exclusions [com.typesafe.akka/akka-actor_2.10
                                org.jodd/jodd-lagarto

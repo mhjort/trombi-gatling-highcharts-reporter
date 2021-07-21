@@ -1,11 +1,12 @@
 (ns clojider-gatling-highcharts-reporter.reporter-test
   (:require [clojure.test :refer :all]
             [clj-containment-matchers.clojure-test :refer :all]
+            [clojure.string :as str]
             [clojure.java.io :as io]
-            [clj-time.core :refer [local-date-time]]
             [clojider-gatling-highcharts-reporter.core :refer [start-time
                                                                gatling-highcharts-reporter]])
-  (:import [java.io File]))
+  (:import (java.io File)
+           (java.time LocalDateTime)))
 
 (defn create-dir [^String dir]
     (.mkdirs (File. dir)))
@@ -29,8 +30,8 @@
 (deftest maps-scenario-results-to-log-lines
   (create-dir "target/test-results")
   (delete-file-if-exists "target/test-results/input/simulation0.log")
-  (with-redefs [start-time #(local-date-time 2014 2 9 11 1 36)]
+  (with-redefs [start-time #(LocalDateTime/of 2014 2 9 11 1 36)]
     (let [output-writer (:writer (gatling-highcharts-reporter "target/test-results"))]
       (output-writer {:name "mySimulation"} 0 scenario-results)))
-  (let [results (clojure.string/split (slurp  "target/test-results/input/simulation0.log") #"\n")]
+  (let [results (str/split (slurp  "target/test-results/input/simulation0.log") #"\n")]
     (is (equal? results expected-lines))))

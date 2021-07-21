@@ -2,8 +2,7 @@
   (:import [scala.collection.mutable HashMap]
            [io.gatling.charts.report ReportsGenerator]
            [io.gatling.charts.result.reader FileDataReader]
-           [io.gatling.core.config GatlingConfiguration]
-           [org.joda.time LocalDateTime]))
+           [io.gatling.core.config GatlingConfiguration]))
 
 (defn create-chart [results-dir]
   (let [conf (HashMap.)]
