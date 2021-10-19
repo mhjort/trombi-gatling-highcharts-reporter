@@ -2,7 +2,6 @@
   (:require [clojure.test :refer :all]
             [clj-containment-matchers.clojure-test :refer :all]
             [clojure.java.io :as io]
-            [clj-time.core :refer [local-date-time]]
             [clojider-gatling-highcharts-reporter.generator :refer [create-chart]])
   (:import [java.io File]))
 

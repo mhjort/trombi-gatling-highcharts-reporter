@@ -1,6 +1,6 @@
 (ns clojider-gatling-highcharts-reporter.reporter
-  (:require [clj-time.format :refer [formatter unparse-local]]
-            [clojure-csv.core :refer [write-csv]]))
+  (:require [clojure-csv.core :refer [write-csv]])
+  (:import (java.time.format DateTimeFormatter)))
 
 (defn- flatten-one-level [coll]
   (mapcat #(if (sequential? %) % [%]) coll))
