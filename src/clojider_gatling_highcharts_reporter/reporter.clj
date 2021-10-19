@@ -25,11 +25,8 @@
         requests (mapcat #(vector (map-request (:name scenario) %)) (:requests scenario))]
     (concat [scenario-start] requests [scenario-end])))
 
-(def custom-formatter
-  (DateTimeFormatter/ofPattern "yyyyMMddhhmmss"))
-
-(defn gatling-csv-lines [start-time simulation _ results]
-  (let [timestamp (.format custom-formatter start-time)
+(defn gatling-csv-lines [start-time simulation idx results]
+  (let [timestamp (-> start-time .toDateTime .getMillis str)
         header ["clj-gatling" (:name simulation) "RUN" timestamp "\u0020" "2.0"]]
     (conj (flatten-one-level (mapcat #(vector (scenario->rows %)) results)) header)))
 
