@@ -1,6 +1,6 @@
 (ns clojider-gatling-highcharts-reporter.reporter
   (:require [clojure-csv.core :refer [write-csv]])
-  (:import (java.time.format DateTimeFormatter)))
+  (:import (java.time ZoneId)))
 
 (defn- flatten-one-level [coll]
   (mapcat #(if (sequential? %) % [%]) coll))
@@ -25,8 +25,8 @@
         requests (mapcat #(vector (map-request (:name scenario) %)) (:requests scenario))]
     (concat [scenario-start] requests [scenario-end])))
 
-(defn gatling-csv-lines [start-time simulation idx results]
-  (let [timestamp (-> start-time .toDateTime .getMillis str)
+(defn gatling-csv-lines [start-time simulation _ results]
+  (let [timestamp (-> start-time (.atZone (ZoneId/systemDefault)) .toInstant .toEpochMilli str)
         header ["clj-gatling" (:name simulation) "RUN" timestamp "\u0020" "2.0"]]
     (conj (flatten-one-level (mapcat #(vector (scenario->rows %)) results)) header)))
 
