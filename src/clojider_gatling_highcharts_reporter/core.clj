@@ -12,7 +12,7 @@
   (LocalDateTime/now))
 
 (defn create-dir [dir]
-  (.mkdirs (File. dir)))
+  (.mkdirs (File. ^String dir)))
 
 (defn gatling-highcharts-reporter [results-dir]
   (let [input-dir (path-join results-dir "input")]
@@ -21,4 +21,4 @@
      :generator (fn [_]
                   (println "Creating report from files in" results-dir)
                   (create-chart results-dir)
-                  (println (str "Open " results-dir "/index.html with your browser to see a detailed report." )))}))
+                  (println (str "Open " results-dir "/index.html with your browser to see a detailed report.")))}))
