@@ -13,8 +13,12 @@
         request-end start
         response-start end
         execution-end end
-        result (if (:result request) "OK" "KO")]
-    [scenario-name id "REQUEST" "" (:name request) execution-start request-end response-start execution-end result "\u0020"]))
+        result (if (:result request) "OK" "KO")
+        exception (:exception request)
+        vec-prefix [scenario-name id "REQUEST" "" (:name request) execution-start request-end response-start execution-end result]]
+    (if exception
+      (conj vec-prefix exception "\u0020")
+      (conj vec-prefix "\u0020"))))
 
 (defn- scenario->rows [scenario]
   (let [start (str (:start scenario))
