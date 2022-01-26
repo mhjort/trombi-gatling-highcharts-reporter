@@ -2,14 +2,14 @@
   (:require [clojider-gatling-highcharts-reporter.reporter :refer [csv-writer]]
             [clojider-gatling-highcharts-reporter.generator :refer [create-chart]]
             [clojure.java.io :as io])
-  (:import [java.time LocalDateTime]
-           [java.io File]))
+  (:import (java.io File)
+           (java.time ZonedDateTime)))
 
 (defn- path-join [& paths]
   (.getCanonicalPath (apply io/file paths)))
 
 (defn start-time []
-  (LocalDateTime/now))
+  (ZonedDateTime/now))
 
 (defn create-dir [dir]
   (.mkdirs (File. ^String dir)))
