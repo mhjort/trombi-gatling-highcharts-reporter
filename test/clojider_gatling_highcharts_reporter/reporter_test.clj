@@ -6,7 +6,7 @@
             [clojider-gatling-highcharts-reporter.core :refer [start-time
                                                                gatling-highcharts-reporter]])
   (:import (java.io File)
-           (java.time LocalDateTime)))
+           (java.time ZonedDateTime ZoneId)))
 
 (defn create-dir [^String dir]
     (.mkdirs (File. dir)))
@@ -21,17 +21,17 @@
                {:id 1 :name "Request2" :start 1391936497299 :end 1391936497996 :result false}]}])
 
 (def expected-lines
-  ["clj-gatling\tmySimulation\tRUN\t1391936496000\t\u0020\t2.0"
-   "Test scenario\t1\tUSER\tSTART\t1391936496814\t1"
-   "Test scenario\t1\tREQUEST\t\tRequest1\t1391936496853\t1391936496853\t1391936497299\t1391936497299\tOK\t\u0020"
-   "Test scenario\t1\tREQUEST\t\tRequest2\t1391936497299\t1391936497299\t1391936497996\t1391936497996\tKO\t\u0020"
-   "Test scenario\t1\tUSER\tEND\t1391936496814\t1391936496814"])
+  ["RUN\tclj-gatling\tmySimulation\t1391936496000\t\u0020\t3.7.4"
+   "USER\tTest scenario\tSTART\t1391936496814"
+   "REQUEST\t\tRequest1\t1391936496853\t1391936497299\tOK\t\u0020"
+   "REQUEST\t\tRequest2\t1391936497299\t1391936497996\tKO\t\u0020"
+   "USER\tTest scenario\tEND\t1391936496814"])
 
 (deftest maps-scenario-results-to-log-lines
-  (create-dir "target/test-results")
-  (delete-file-if-exists "target/test-results/input/simulation0.log")
-  (with-redefs [start-time #(LocalDateTime/of 2014 2 9 11 1 36)]
-    (let [output-writer (:writer (gatling-highcharts-reporter "target/test-results"))]
+  (create-dir "target/reporter-test")
+  (delete-file-if-exists "target/reporter-test/input/simulation0.log")
+  (with-redefs [start-time #(ZonedDateTime/of 2014 2 9 9 1 36 0 (ZoneId/of "UTC"))]
+    (let [output-writer (:writer (gatling-highcharts-reporter "target/reporter-test"))]
       (output-writer {:name "mySimulation"} 0 scenario-results)))
-  (let [results (str/split (slurp  "target/test-results/input/simulation0.log") #"\n")]
+  (let [results (str/split (slurp "target/reporter-test/input/simulation0.log") #"\n")]
     (is (equal? results expected-lines))))
