@@ -1,4 +1,4 @@
-(defproject clojider-gatling-highcharts-reporter "0.4.0"
+(defproject clojider-gatling-highcharts-reporter "0.5.0-beta1"
   :description "Gatling Highcharts Reporter for clj-gatling"
   :url "https://github.com/mhjort/clojider-gatling-highcharts-reporter"
   :license {:name "Eclipse Public License"

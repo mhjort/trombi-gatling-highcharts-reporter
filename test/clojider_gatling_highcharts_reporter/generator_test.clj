@@ -21,3 +21,5 @@
   (delete-file-if-exists "target/generator-test/target/generator-test/index.html")
   (create-chart "target/generator-test")
   (is (.exists (io/as-file "target/generator-test/target/generator-test/index.html"))))
+
+;TODO Add test that uses new reporter format, now tests test only legacy format

@@ -3,7 +3,7 @@
             [clj-containment-matchers.clojure-test :refer :all]
             [clojure.string :as str]
             [clojure.java.io :as io]
-            [clojider-gatling-highcharts-reporter.core :refer [start-time
+            [clojider-gatling-highcharts-reporter.core :refer [current-time
                                                                gatling-highcharts-reporter]])
   (:import (java.io File)
            (java.time ZonedDateTime ZoneId)))
@@ -30,7 +30,7 @@
 (deftest maps-scenario-results-to-log-lines
   (create-dir "target/reporter-test")
   (delete-file-if-exists "target/reporter-test/input/simulation0.log")
-  (with-redefs [start-time #(ZonedDateTime/of 2014 2 9 9 1 36 0 (ZoneId/of "UTC"))]
+  (with-redefs [current-time #(ZonedDateTime/of 2014 2 9 9 1 36 0 (ZoneId/of "UTC"))]
     (let [output-writer (:writer (gatling-highcharts-reporter "target/reporter-test"))]
       (output-writer {:name "mySimulation"} 0 scenario-results)))
   (let [results (str/split (slurp "target/reporter-test/input/simulation0.log") #"\n")]
