@@ -13,7 +13,7 @@ Note! This repository used to be with name `clojider-gatling-highcharts-reporter
 
 Add the following to your `project.clj` `:dependencies`:
 
-[![Clojars Project](https://img.shields.io/clojars/v/trombi-gatling-highcharts-reporter.svg)](https://clojars.org/trombi-gatling-highcharts-reporter)
+[![Clojars Project](https://img.shields.io/clojars/v/com.github.mhjort/trombi-gatling-highcharts-reporter.svg)](https://clojars.org/com.github.mhjort/trombi-gatling-highcharts-reporter)
 
 ## License
 

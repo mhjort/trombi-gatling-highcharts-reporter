@@ -1,4 +1,4 @@
-(defproject trombi-gatling-highcharts-reporter "1.0.0"
+(defproject com.github.mhjort/trombi-gatling-highcharts-reporter "1.0.0"
   :description "Gatling Highcharts Reporter for Trombi"
   :url "https://github.com/mhjort/trombi-gatling-highcharts-reporter"
   :license {:name "Eclipse Public License"
