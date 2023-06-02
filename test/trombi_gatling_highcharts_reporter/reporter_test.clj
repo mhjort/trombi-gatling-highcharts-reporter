@@ -1,9 +1,9 @@
-(ns clojider-gatling-highcharts-reporter.reporter-test
+(ns trombi-gatling-highcharts-reporter.reporter-test
   (:require [clojure.test :refer :all]
             [clj-containment-matchers.clojure-test :refer :all]
             [clojure.string :as str]
             [clojure.java.io :as io]
-            [clojider-gatling-highcharts-reporter.core :refer [current-time
+            [trombi-gatling-highcharts-reporter.core :refer [current-time
                                                                gatling-highcharts-reporter]])
   (:import (java.io File)
            (java.time ZonedDateTime ZoneId)))
@@ -21,7 +21,7 @@
                {:id 1 :name "Request2" :start 1391936497299 :end 1391936497996 :result false}]}])
 
 (def expected-lines
-  ["RUN\tclj-gatling\tmySimulation\t1391936496000\t\u0020\t3.7.4"
+  ["RUN\ttrombi\tmySimulation\t1391936496000\t\u0020\t3.7.4"
    "USER\tTest scenario\tSTART\t1391936496814"
    "REQUEST\t\tRequest1\t1391936496853\t1391936497299\tOK\t\u0020"
    "REQUEST\t\tRequest2\t1391936497299\t1391936497996\tKO\t\u0020"

@@ -1,4 +1,4 @@
-(ns clojider-gatling-highcharts-reporter.reporter
+(ns trombi-gatling-highcharts-reporter.reporter
   (:require [clojure-csv.core :refer [write-csv]]))
 
 ;; This should always match the version of gatling-charts referenced in project.clj
@@ -27,7 +27,7 @@
 
 (defn gatling-csv-lines [start-time simulation _ results]
   (let [timestamp (-> start-time .toInstant .toEpochMilli str)
-        header ["RUN" "clj-gatling" (:name simulation) timestamp "\u0020" gatling-version]]
+        header ["RUN" "trombi" (:name simulation) timestamp "\u0020" gatling-version]]
     (conj (flatten-one-level (mapcat #(vector (scenario->rows %)) results)) header)))
 
 (defn csv-writer [path start-time simulation idx results]

@@ -1,8 +1,8 @@
-(ns clojider-gatling-highcharts-reporter.generator-test
+(ns trombi-gatling-highcharts-reporter.generator-test
   (:require [clojure.test :refer :all]
             [clj-containment-matchers.clojure-test :refer :all]
             [clojure.java.io :as io]
-            [clojider-gatling-highcharts-reporter.generator :refer [create-chart]])
+            [trombi-gatling-highcharts-reporter.generator :refer [create-chart]])
   (:import [java.io File]))
 
 (defn create-dir [^String dir]

@@ -1,6 +1,6 @@
-(defproject clojider-gatling-highcharts-reporter "0.5.0-beta1"
-  :description "Gatling Highcharts Reporter for clj-gatling"
-  :url "https://github.com/mhjort/clojider-gatling-highcharts-reporter"
+(defproject trombi-gatling-highcharts-reporter "1.0.0"
+  :description "Gatling Highcharts Reporter for Trombi"
+  :url "https://github.com/mhjort/trombi-gatling-highcharts-reporter"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.10.3"]

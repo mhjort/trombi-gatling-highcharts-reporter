@@ -1,4 +1,4 @@
-(ns clojider-gatling-highcharts-reporter.generator
+(ns trombi-gatling-highcharts-reporter.generator
   (:import (io.gatling.charts.report ReportsGenerationInputs ReportsGenerator)
            (io.gatling.charts.stats LogFileReader)
            (io.gatling.core.config GatlingConfiguration)
